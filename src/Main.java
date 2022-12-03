@@ -2,9 +2,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Напиши одно из трёх: Камень, Ножницы, Бумага");
+        System.out.println("Напиши одну из трёх цифр: 1 - Камень, 2 - Ножницы, 3 - Бумага");
         Scanner scan = new Scanner (System.in);
         String Check = scan.nextLine();
+        System.out.println("Игрок выбрал "+Check);
 
         List<String> game = new LinkedList<>();
         game.add("Камень");
@@ -16,44 +17,23 @@ public class Main {
         String randS = game.get(i);
         System.out.println("Бот выбрал "+randS);
 
-        if (randS.equals("Камень") && Check.equals("Камень")){
-            System.out.println("Ничья");
-        }
-        if (randS=="Ножницы"&&Check=="Ножницы"){
-            System.out.println("Ничья");
-        }
-        if (randS=="Бумага"&&Check=="Бумага"){
-            System.out.println("Ничья");
-        }
-        if (randS=="Камень"&&Check=="Ножницы"){
-            System.out.println("Победил бот");
-        }
-        if (randS=="Камень"&&Check=="Бумага"){
-            System.out.println("Победил игрок");
-        }
-        if (randS=="Ножницы"&&Check=="Бумага"){
-            System.out.println("Победил бот");
-        }
-        if (randS=="Ножницы"&&Check=="Камень"){
-            System.out.println("Победил игрок");
-        }
-        if (randS=="Бумага"&&Check=="Камень"){
-            System.out.println("Победил бот");
-        }
-        if (randS=="Бумага"&&Check=="Ножницы"){
-            System.out.println("Победил игрок");
-        }
-
-//        switch (Check) {
-//            case "Камень":
-//                if
-//        }
-
-
-
-
-
-        System.out.println(randS);
+        switch (Check) {
+            case "Камень":
+                if (Check==randS) {
+                    System.out.println("Ничья");
+                } else if (Check=="Камень"&&randS=="Бумага") {
+                    System.out.println("Победил бот");
+                } else if (Check=="Камень"&&randS=="Ножницы") {
+                    System.out.println("Победил игрок");
+                }
+            case "Бумага":
+                if (Check==randS) {
+                    System.out.println("Ничья");
+                } else if (randS=="Бумага"&&Check=="Ножницы") {
+                    System.out.println("Победил бот");
+                } else if (randS=="Бумага"&&Check=="Бумага") {
+                    System.out.println("Победил игрок");
+                }
 
     }
 }
